@@ -37,9 +37,9 @@
 
   <p>En primer lugar, para la representación del equipo de tráfico El equipo tiene un identificador, una descripción y en caso de que sea de medición se indicará si está en servicio o no y la frecuencia de medición. También se puede indicar a cuántos sentidos observa el dispositivo, a cuántos carriles y si se trata de un equipo urbano o no urbano.
   Se enlaza a través de la propiedad tipo de equipo de tráfico con el tipo de dispositivo correspondiente de la taxonomía de tipos de equipos de tráfico, en este caso tubo neumático.</p>
-  
-  <pre>
-    &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/equipotrafico/100&gt; a edinttraf:TrafficMeasurementDevice ;
+
+  <pre><textarea style="resize:none" readonly id="code2" name="code" rows="25" cols="100">
+  &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/equipotrafico/100&gt; a edinttraf:TrafficMeasurementDevice ;
     dct:identifier "100"^^xsd:string ;
     dct:description "C. GRAN VIA;San Bernardo-Garcia Molinas;San Bernardo"^^xsd:string ;
     sosa:observes &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/carga&gt; ;
@@ -50,16 +50,25 @@
     edinttraf:measurementFrequency "5 minutos"^^xsd:string ;
     edinttraf:monitors &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/tramo/100&gt; ;
     edinttraf:trafficEquipmentType &lt;http://vocab.linkeddata.es/datosabiertos/kos/edint/trafficequipment/tubo-neumatico&gt; .
-  </pre>
-  
+  </textarea></pre>
+  <script>
+      var editor2 = CodeMirror.fromTextArea(document.getElementById("code2"), {
+          mode: "text/turtle",
+          matchBrackets: true
+      });
+       editor2.setSize(null, "200px"); // ancho automático, altura menor
+  </script>
+
+
+
 
 
   <h4>Observación de Tráfico</h4>
   
   <p>La clase observación de tráfico se relaciona a través de la propiedad sosa:observedProperty a la propiedad de "carga". La propiedad validada indica si el dato ha sido validado o no. Para representar el intervalo de registro de datos se utiliza la propiedad sosa:phenomenonTime que se relaciona con la clase time:TemporalEntity como se ha explicado anteriormente.</p>
   <p>Observación:</p>
-  <pre>
-    &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/observaciontrafico/20200423114500&gt; a edinttraf:ObservacionTrafico ;
+  <pre><textarea style="resize:none" readonly id="code3" name="code" rows="25" cols="100">
+   &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/observaciontrafico/20200423114500&gt; a edinttraf:ObservacionTrafico ;
     dct:identifier "100-20200423114500"^^xsd:string ;
     sosa:resultTime "2020-04-23T11:45:00+02:00"^^xsd:dateTime ;
     sosa:hasResult  &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/quantityvalue/20200423114500&gt;;
@@ -68,34 +77,54 @@
     sosa:observedProperty &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/carga&gt; ;
     sosa:hasFeatureOfInterest &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/punto-observacion-trafico/1234&gt; ;
     sosa:phenomenonTime &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/interval/20200423114500&gt; .
-  </pre>
+  </textarea></pre>
+  <script>
+      var editor2 = CodeMirror.fromTextArea(document.getElementById("code3"), {
+          mode: "text/turtle",
+          matchBrackets: true
+      });
+      editor2.setSize(null, "160px"); // ancho automático, altura menor
+  </script>
 
   <p>Intervalo de observación:</p>
-  <pre>
+  <pre><textarea style="resize:none" readonly id="code4" name="code" rows="25" cols="100">
     &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/interval/20200423114500&gt; a time:Interval ;
     time:hasBegining &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/instant/20200423114455&gt; ;
     time:hasEnd &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/instant/202004231145000&gt; .
 
     &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/instant/20200423114455&gt; a time:Instant ;
     time:inXSDgYearMonth "2020-04-23T11:44:55+02:00"^^xsd:dateTime .
-    
+
     &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/instant/20200423114500&gt; a time:Instant ;
     time:inXSDgYearMonth "2020-04-23T11:45:00+02:00"^^xsd:dateTime .
-  </pre>
+    </textarea></pre>
+    <script>
+        var editor2 = CodeMirror.fromTextArea(document.getElementById("code4"), {
+            mode: "text/turtle",
+            matchBrackets: true
+        });
+        editor2.setSize(null, "160px"); // ancho automático, altura menor
+    </script>
+
   <h4>Donde aparece</h4>
   <p>Esta Observación aparece a través de sosa:hasFeatureOfInterest que se relaciona con el punto de observacion de tráfico.</p>
-  
-  <pre>
+  <pre><textarea style="resize:none" readonly id="code5" name="code" rows="25" cols="100">
     &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/punto-observacion-trafico/1234&gt;; a edinttraf:TrafficObservationPoint ;
     geosparql:hasGeometry &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/point/100&gt; ;
     geo:lat &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/point/100&gt; ;
     geo:long &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/point/101&gt; ;.
-  </pre>
+  </textarea></pre>
+  <script>
+      var editor2 = CodeMirror.fromTextArea(document.getElementById("code5"), {
+          mode: "text/turtle",
+          matchBrackets: true
+      });
+      editor2.setSize(null, "100px"); // ancho automático, altura menor
+  </script>
 
   <h4>Incidencia</h4>
   <p>Para representar una incidencia se ha creado una instancia de la clase incidencia que cuenta con las propiedades relatadas anteriormente: una fecha de creación de la incidencia, una fecha de inicio, una fecha de fin, una fecha de fin prevista, el número de sentidos, el número de carriles, si es recurrente y en este caso el motivo de la recurrencia.</p>
-
-  <pre>
+  <pre><textarea style="resize:none" readonly id="code6" name="code" rows="25" cols="100">
     &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/incidenciaplanificada/1000&gt; a edinttraf:Incidencia ;
     dct:identifier "1000"^^xsd:string ;
     dct:description "EXP-2020/22329 Plaza Humilladero-Almendro"^^xsd:string ;
@@ -110,6 +139,13 @@
     geosparql:hasGeometry
     &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/point/1000&gt; ;
     edinttraf:incidenceInSection &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/tramo/1000&gt; .
-  </pre>
+  </textarea></pre>
+  <script>
+      var editor2 = CodeMirror.fromTextArea(document.getElementById("code6"), {
+          mode: "text/turtle",
+          matchBrackets: true
+      });
+      editor2.setSize(null, "230px"); // ancho automático, altura menor
+  </script>
 </span>
 
