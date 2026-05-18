@@ -1,0 +1,11 @@
+
+# TRA05: ¿Qué observaciones de tráfico se han realizado y qué sensores las han generado?
+
+PREFIX edinttraf: <http://vocab.linkeddata.es/datosabiertos/def/transporte/edinttrafico#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+
+SELECT ?observation ?sensor
+WHERE {
+  ?observation a edinttraf:TrafficObservation ;
+               sosa:madeBySensor ?sensor .
+}

@@ -1,0 +1,10 @@
+
+# TRA01: ¿En qué tramo ocurre cada incidencia?
+
+PREFIX edinttraf: <http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#>
+
+SELECT ?incidence ?section
+WHERE {
+  ?incidence a edinttraf:Incidence ;
+             edinttraf:IncidenceInSection ?section .
+}

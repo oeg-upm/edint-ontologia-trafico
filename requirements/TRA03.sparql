@@ -1,0 +1,14 @@
+
+# TRA03: ¿Qué incidencias están activas en un intervalo temporal?
+
+PREFIX edinttraf: <http://vocab.linkeddata.es/datosabiertos/def/transporte/edinttrafico#>
+PREFIX schema: <http://schema.org/>
+
+SELECT ?incidence ?start ?end
+WHERE {
+  ?incidence a edinttraf:Incidence ;
+             schema:startDate ?start ;
+             schema:endDate ?end .
+  
+  FILTER (?start <= "FECHA-INICIO-INTERVALO" && ?end >= "FECHA-FIN-INTERVALO")
+}

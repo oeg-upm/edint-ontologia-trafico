@@ -1,0 +1,10 @@
+
+# TRA04: ¿Qué equipos monitorizan cada tramo?
+
+PREFIX edinttraf: <http://vocab.linkeddata.es/datosabiertos/def/transporte/edinttrafico#>
+
+SELECT ?equipment ?section
+WHERE {
+  ?equipment a edinttraf:TrafficEquipment ;
+             edinttraf:monitors ?section .
+}

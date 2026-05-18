@@ -1,0 +1,18 @@
+
+# TRA02: ¿Qué incidencias son planificadas y cuáles no?
+
+PREFIX edinttraf: <http://vocab.linkeddata.es/datosabiertos/def/transporte/edinttrafico#>
+
+SELECT ?incidence ?type
+WHERE {
+  {
+    ?incidence a edinttraf:PlannedIncidence .
+    BIND("Planned" AS ?type)
+  }
+  UNION
+  {
+    ?incidence a edinttraf:UnplannedIncidence .
+    BIND("Unplanned" AS ?type)
+  }
+}
+

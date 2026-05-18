@@ -1,0 +1,21 @@
+
+# TRA09: ¿Cuáles son las incidencias de tráfico en una fecha dada?
+
+PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX edinttraf:   <http://vocab.linkeddata.es/datosabiertos/def/transporte/edinttrafico#>
+PREFIX schema: <http://schema.org/>
+PREFIX xsd:    <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?incidence ?start ?end
+WHERE {
+  ?incidence a edinttraf:Incidence ;
+             schema:startDate ?start ;
+             schema:endDate ?end .
+
+  # Fecha dada (ejemplo)
+  FILTER(
+    ?start <= "FECHA"^^xsd:dateTime &&
+    ?end   >= "FECHA"^^xsd:dateTime
+  )
+}
+ORDER BY ?start

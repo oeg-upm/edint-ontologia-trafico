@@ -1,0 +1,14 @@
+
+# TRA07: ¿Qué tramos presentan mayor carga de tráfico?
+
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX edinttraf: <http://vocab.linkeddata.es/datosabiertos/def/transporte/edinttrafico#>
+
+SELECT ?section (AVG(xsd:float(?value)) AS ?avgLoad)
+WHERE {
+  ?obs sosa:observedProperty edinttraf:load ;
+       sosa:hasSimpleResult ?value ;
+       sosa:hasFeatureOfInterest ?section .
+}
+GROUP BY ?section
+ORDER BY DESC(?avgLoad)
