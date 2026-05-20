@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://vocab.ciudadesabiertas.es/def/transporte/trafico#"
-     xml:base="http://vocab.ciudadesabiertas.es/def/transporte/trafico"
+<rdf:RDF xmlns="http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#"
+     xml:base="http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:sf="http://www.opengis.net/ont/sf#"
      xmlns:dct="http://purl.org/dc/terms/"
