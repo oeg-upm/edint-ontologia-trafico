@@ -30,6 +30,7 @@
         <dcterms:title xml:lang="es">Vocabulario para la representación de datos sobre el tráfico de vehículos en las ciudades</dcterms:title>
         <dcterms:title xml:lang="en">Vocabulary for the representation of data on vehicle traffic in cities</dcterms:title>
         <dcterms:created>2026-05-11</dcterms:created>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-05-11</dcterms:issued>
         <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
         <dcterms:description xml:lang="es">La ontología de Tráfico representa los datos de medición del tráfico de vehículos de una ciudad así como las incidencias planificadas y no planificadas que pueden ocurrir. Incluye también las observaciones de control de velocidad y acceso de vehículo específicos.</dcterms:description>
         <dcterms:description xml:lang="en">The Traffic ontology represents the vehicle traffic measurement data for a city, as well as planned and unplanned incidents that may occur. It also includes observations of specific vehicle speed and access controls.</dcterms:description>
