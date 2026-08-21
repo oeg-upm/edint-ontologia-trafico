@@ -1,27 +1,28 @@
-@prefix : <http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#> .
+@prefix : <https://edint.es/def/trafico#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#> .
+@base <https://edint.es/def/trafico#> .
 
-<http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico> rdf:type owl:Ontology ;
-                                                                   owl:versionIRI <http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico/0.1.0> ;
-                                                                   <http://purl.org/dc/elements/1.1/creator> "Daniel Doña" ,
-                                                                                                             "Edna Ruckhaus" ,
-                                                                                                             "Lucía Sánchez" ,
-                                                                                                             "Oscar Corcho" ,
-                                                                                                             "Socorro Bernardos" ;
-                                                                   <http://purl.org/dc/elements/1.1/title> "Vocabulario para la representación de datos sobre el tráfico de vehículos en las ciudades"@es ,
-                                                                                                           "Vocabulary for the representation of data on vehicle traffic in cities"@en ;
-                                                                   <http://purl.org/dc/terms/created> "2026-05-11" ;
-                                                                   <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by/4.0" ;
-                                                                   <http://purl.org/vocab/vann/preferredNamespacePrefix> "edinttraf" ;
-                                                                   <http://purl.org/vocab/vann/preferredNamespaceUri> : ;
-                                                                   rdfs:comment "La ontología de Tráfico representa los datos de medición del tráfico de vehículos de una ciudad así como las incidencias planificadas y no planificadas que pueden ocurrir. Incluye también las observaciones de control de velocidad y acceso de vehículo específicos."@es ,
-                                                                                "The Traffic ontology represents the vehicle traffic measurement data for a city, as well as planned and unplanned incidents that may occur. It also includes observations of specific vehicle speed and access controls."@en ;
-                                                                   owl:versionInfo "0.1.0" .
+<https://edint.es/def/trafico> rdf:type owl:Ontology ;
+                                owl:versionIRI <https://edint.es/def/trafico> ;
+                                <http://purl.org/dc/terms/created> "2026-05-11" ;
+                                <http://purl.org/dc/terms/creator> "Daniel Doña" ,
+                                                                   "Edna Ruckhaus" ,
+                                                                   "Lucía Sánchez" ,
+                                                                   "Socorro Bernardos" ;
+                                <http://purl.org/dc/terms/issued> "2026-05-11"^^xsd:date ;
+                                <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> ;
+                                <http://purl.org/dc/terms/title> "Vocabulario para la representación de datos sobre el tráfico de vehículos en las ciudades"@es ,
+                                                                 "Vocabulary for the representation of data on vehicle traffic in cities"@en ;
+                                <http://purl.org/vocab/vann/preferredNamespacePrefix> "edinttraf" ;
+                                <http://purl.org/vocab/vann/preferredNamespaceUri> : ;
+                                rdfs:comment "La ontología de Tráfico representa los datos de medición del tráfico de vehículos de una ciudad así como las incidencias planificadas y no planificadas que pueden ocurrir. Incluye también las observaciones de control de velocidad y acceso de vehículo específicos."@es ,
+                                             "The Traffic ontology represents the vehicle traffic measurement data for a city, as well as planned and unplanned incidents that may occur. It also includes observations of specific vehicle speed and access controls."@en ;
+                                owl:priorVersion <https://github.com/EDINT-Ontologia/edint-ontologia-trafico/releases/tag/v0.1.0> ;
+                                owl:versionInfo "0.1.1" .
 
 #################################################################
 #    Annotation properties
@@ -67,16 +68,16 @@
 <http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
 
 
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
 ###  http://purl.org/dc/terms/hasVersion
 <http://purl.org/dc/terms/hasVersion> rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/issued
 <http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty ;
-                                  <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#issued-003> ;
-                                  rdfs:comment "Date of formal issuance (e.g., publication) of the resource."@en ;
-                                  rdfs:isDefinedBy "http://purl.org/dc/terms/"@en ;
-                                  rdfs:label "Date Issued"@en ;
                                   rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/date> .
 
 
@@ -86,6 +87,14 @@
 
 ###  http://purl.org/dc/terms/publisher
 <http://purl.org/dc/terms/publisher> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/source
+<http://purl.org/dc/terms/source> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/vocab/vann/preferredNamespacePrefix
@@ -114,6 +123,10 @@
 
 ###  http://www.w3.org/2004/02/skos/core#example
 <http://www.w3.org/2004/02/skos/core#example> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#note
+<http://www.w3.org/2004/02/skos/core#note> rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -148,103 +161,6 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
 
 ###  http://qudt.org/schema/qudt/unitFor
 <http://qudt.org/schema/qudt/unitFor> rdf:type owl:ObjectProperty .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#IncidenceInSection
-:IncidenceInSection rdf:type owl:ObjectProperty ,
-                             owl:FunctionalProperty ;
-                    rdfs:domain :Incidence ;
-                    rdfs:range :StreetSection ;
-                    rdfs:comment "Relación de la Incidencia con el Tramo donde se produce la misma."@es ,
-                                 "Relationship of the Incidence withe the  Section, where it happens."@en ;
-                    rdfs:isDefinedBy <http://vocab.ciudadesabiertas.es/def/transporte/trafico> ;
-                    rdfs:label "incidence in Section"@en ,
-                               "incidencia en tramo"@es .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#endOfSection
-:endOfSection rdf:type owl:ObjectProperty ,
-                       owl:FunctionalProperty ;
-              rdfs:domain :StreetSection ;
-              rdfs:range <http://www.opengis.net/ont/sf#Point> ;
-              rdfs:comment "Relación del tramo con el lugar donde finaliza el tramo."@es ,
-                           "Relationship of the section with the point where it ends."@en ;
-              rdfs:isDefinedBy <http://vocab.ciudadesabiertas.es/def/transporte/trafico> ;
-              rdfs:label "end of section"@en ,
-                         "fin del Tramo"@es .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#incidenceType
-:incidenceType rdf:type owl:ObjectProperty ,
-                        owl:FunctionalProperty ;
-               rdfs:domain :Incidence ;
-               rdfs:range [ owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept>
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ;
-                                                   owl:hasValue <http://vocab.linkeddata.es/datosabiertos/kos/edint/IncidenceType>
-                                                 ]
-                                               ) ;
-                            rdf:type owl:Class
-                          ] ;
-               rdfs:comment "Tipo de incidencia, pueden ser planificadas o no planificadas."@es ,
-                            "Type of incidence, planned or unplannedt"@en ;
-               rdfs:isDefinedBy <http://vocab.ciudadesabiertas.es/def/transporte/trafico> ;
-               rdfs:label "tipo de Incidencia"@es ,
-                          "type of Incidence"@en .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#monitors
-:monitors rdf:type owl:ObjectProperty ,
-                   owl:FunctionalProperty ;
-          rdfs:domain :TrafficEquipment ;
-          rdfs:range :StreetSection ;
-          rdfs:comment "Relación entre el dispositivo de medición de tráfico y el tramo de calle que monitoriza."@es ,
-                       "Relationship between traffic equipment and the street section it monitors."@en ;
-          rdfs:isDefinedBy <http://vocab.ciudadesabiertas.es/def/transporte/trafico> ;
-          rdfs:label "monitorea"@es ,
-                     "monitors"@en .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#startOfSection
-:startOfSection rdf:type owl:ObjectProperty ,
-                         owl:FunctionalProperty ;
-                rdfs:domain :StreetSection ;
-                rdfs:range <http://www.opengis.net/ont/sf#Point> ;
-                rdfs:comment "Relación del tramo con el lugar donde se inicia el tramo."@es ,
-                             "Relationship of the section with the point where it starts."@en ;
-                rdfs:isDefinedBy <http://vocab.ciudadesabiertas.es/def/transporte/trafico> ;
-                rdfs:label "inicio del Tramo"@es ,
-                           "start of section"@en .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#trafficEquipmentType
-:trafficEquipmentType rdf:type owl:ObjectProperty ,
-                               owl:FunctionalProperty ;
-                      rdfs:domain :TrafficEquipment ;
-                      rdfs:range [ owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept>
-                                                        [ rdf:type owl:Restriction ;
-                                                          owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ;
-                                                          owl:hasValue <http://vocab.linkeddata.es/datosabiertos/kos/edint/TrafficEquipmentType>
-                                                        ]
-                                                      ) ;
-                                   rdf:type owl:Class
-                                 ] ;
-                      rdfs:comment "Tipo de equipo de tráfico, equipos de control y dispositivos de medición"@es ,
-                                   "Type of traffic equipment, monitor equipment or meassuring devices"@en ;
-                      rdfs:isDefinedBy <http://vocab.ciudadesabiertas.es/def/transporte/trafico> ;
-                      rdfs:label "tipo de Equipo de Tráfico"@es ,
-                                 "type of Traffic Equipment"@en .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero#containsStreetSection
-<http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero#containsStreetSection> rdf:type owl:ObjectProperty ;
-                                                                                                          rdfs:domain <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero#Via> ;
-                                                                                                          rdfs:range :StreetSection ;
-                                                                                                          rdfs:comment "A section of road that contains a geographical phenomenon (for example, a road, although it can also be a neighborhood, district, city, etc.)."@en ,
-                                                                                                                       "Tramo de vía que un fenómeno geográfico contiene (por ejemplo, una vía, aunque también puede ser un barrio, distrito, ciudad, etc.)."@es ;
-                                                                                                          rdfs:isDefinedBy <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero> ;
-                                                                                                          rdfs:label "contains street section"@en ,
-                                                                                                                     "contiene tramo de vía"@es .
 
 
 ###  http://www.opengis.net/ont/geosparql#hasGeometry
@@ -288,13 +204,24 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                                                 "Tiene final"@es .
 
 
+###  http://www.w3.org/ns/sosa/forProperty
+<http://www.w3.org/ns/sosa/forProperty> rdf:type owl:ObjectProperty .
+
+
 ###  http://www.w3.org/ns/sosa/hasFeatureOfInterest
 <http://www.w3.org/ns/sosa/hasFeatureOfInterest> rdf:type owl:ObjectProperty ;
-                                                 rdfs:comment "A relation between an Observation and the entity whose quality was observed."@en ,
-                                                              "Una relación entre una Observación y la entidad para la que se ha observado."@es ;
-                                                 rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
-                                                 rdfs:label "has feature of interest"@en ,
-                                                            "tiene característica de interés"@es .
+                                                 owl:inverseOf <http://www.w3.org/ns/sosa/isFeatureOfInterestOf> ;
+                                                 <http://schema.org/domainIncludes> <http://www.w3.org/ns/sosa/Actuation> ,
+                                                                                    <http://www.w3.org/ns/sosa/Observation> ,
+                                                                                    <http://www.w3.org/ns/sosa/ObservationCollection> ,
+                                                                                    <http://www.w3.org/ns/sosa/Sampling> ;
+                                                 <http://schema.org/rangeIncludes> <http://www.w3.org/ns/sosa/FeatureOfInterest> ,
+                                                                                   <http://www.w3.org/ns/sosa/Sample> ;
+                                                 rdfs:comment "A relation between an Observation and the entity whose quality was observed, or between an Actuation and the entity whose property was modified, or between an act of Sampling and the entity that was sampled."@en ;
+                                                 rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ,
+                                                                  <http://www.w3.org/ns/sosa/common/> ;
+                                                 rdfs:label "has feature of interest"@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#example> "For example, in an Observation of the weight of a person, the FeatureOfInterest is the person and the property is its weight."@en .
 
 
 ###  http://www.w3.org/ns/sosa/hasResult
@@ -312,8 +239,34 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                                       rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ,
                                                        <http://www.w3.org/ns/sosa/common/> ;
                                       rdfs:label "has result"@en ,
-                                                 "tiene resultado"@es ;
-                                      <http://www.w3.org/2004/02/skos/core#definition> "Relation linking an Observation or Actuation or act of Sampling and a Result or Sample."@en .
+                                                 "tiene resultado"@es .
+
+
+###  http://www.w3.org/ns/sosa/hosts
+<http://www.w3.org/ns/sosa/hosts> rdf:type owl:ObjectProperty ;
+                                  owl:inverseOf <http://www.w3.org/ns/sosa/isHostedBy> .
+
+
+###  http://www.w3.org/ns/sosa/isFeatureOfInterestOf
+<http://www.w3.org/ns/sosa/isFeatureOfInterestOf> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/isHostedBy
+<http://www.w3.org/ns/sosa/isHostedBy> rdf:type owl:ObjectProperty ;
+                                       <http://schema.org/domainIncludes> <http://www.w3.org/ns/sosa/Actuator> ,
+                                                                          <http://www.w3.org/ns/sosa/Platform> ,
+                                                                          <http://www.w3.org/ns/sosa/Sampler> ,
+                                                                          <http://www.w3.org/ns/sosa/Sensor> ;
+                                       <http://schema.org/rangeIncludes> <http://www.w3.org/ns/sosa/Platform> ;
+                                       rdfs:comment "Relation between a Sensor, Actuator, Sampler, or Platform, and the Platform that it is mounted on or hosted by."@en ;
+                                       rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ,
+                                                        <http://www.w3.org/ns/sosa/common/> ;
+                                       rdfs:label "is hosted by"@en .
+
+
+###  http://www.w3.org/ns/sosa/isObservedBy
+<http://www.w3.org/ns/sosa/isObservedBy> rdf:type owl:ObjectProperty ;
+                                         owl:inverseOf <http://www.w3.org/ns/sosa/observes> .
 
 
 ###  http://www.w3.org/ns/sosa/isResultOf
@@ -322,39 +275,165 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
 
 ###  http://www.w3.org/ns/sosa/madeBySensor
 <http://www.w3.org/ns/sosa/madeBySensor> rdf:type owl:ObjectProperty ;
-                                         rdfs:comment "Relación entre una Observación y un Sensor que realiza la Observación."@en ,
-                                                      "Relation between an Observation and the Sensor which made the Observation."@es ;
-                                         rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                         rdfs:subPropertyOf <http://www.w3.org/ns/sosa/madeBySystem> ;
+                                         owl:inverseOf <http://www.w3.org/ns/sosa/madeObservation> ;
+                                         <http://schema.org/domainIncludes> <http://www.w3.org/ns/sosa/Observation> ,
+                                                                            <http://www.w3.org/ns/sosa/ObservationCollection> ;
+                                         <http://schema.org/rangeIncludes> <http://www.w3.org/ns/sosa/Sensor> ;
+                                         rdfs:comment "Relation between an Observation and the Sensor which made the Observation."@en ;
+                                         rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ,
+                                                          <http://www.w3.org/ns/sosa/obs/> ;
                                          rdfs:label "made by sensor"@en ,
-                                                    "realizada por sensor"@es .
+                                                    "made by sensor or observer"@en .
+
+
+###  http://www.w3.org/ns/sosa/madeBySystem
+<http://www.w3.org/ns/sosa/madeBySystem> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/madeObservation
+<http://www.w3.org/ns/sosa/madeObservation> rdf:type owl:ObjectProperty .
 
 
 ###  http://www.w3.org/ns/sosa/observedProperty
 <http://www.w3.org/ns/sosa/observedProperty> rdf:type owl:ObjectProperty ;
-                                             rdfs:comment "Relación que enlaza la propiedad que se observa."@es ,
-                                                          "Relation linking an Observation to the property that was observed. The ObservableProperty should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this Observation."@en ;
-                                             rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
-                                             rdfs:label "observed property"@en ,
-                                                        "propiedad observada"@es .
+                                             owl:inverseOf <http://www.w3.org/ns/sosa/wasObservedBy> ;
+                                             <http://schema.org/domainIncludes> <http://www.w3.org/ns/sosa/Observation> ,
+                                                                                <http://www.w3.org/ns/sosa/ObservationCollection> ;
+                                             <http://schema.org/rangeIncludes> <http://www.w3.org/ns/sosa/ObservableProperty> ,
+                                                                               <http://www.w3.org/ns/sosa/Property> ;
+                                             rdfs:comment "Relation linking an Observation to the property that was observed. The ObservableProperty should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this Observation."@en ;
+                                             rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ,
+                                                              <http://www.w3.org/ns/sosa/obs/> ;
+                                             rdfs:label "observed property"@en ;
+                                             <http://www.w3.org/2004/02/skos/core#note> """
+  'observed property' covers the concepts referred to in [VIM] as 'measurand' (quantitative values) and 'examinand' (categorical and nominal values — [VIM4]), as well as complex and structured properties whose values may be represented as lists, vectors, arrays, rasters, geometries, etc. More specific terms are used in other contexts for related concepts, such as 'analyte' (chemistry) and 'determinand' (water quality).
+  """@en .
 
 
 ###  http://www.w3.org/ns/sosa/observes
 <http://www.w3.org/ns/sosa/observes> rdf:type owl:ObjectProperty ;
-                                     rdfs:comment "Relación entre un Sensor y una Propiedad Observada que es capaz de obtener observaciones."@es ,
-                                                  "Relation between a Sensor and an ObservableProperty that it is capable of sensing."@en ;
-                                     rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
-                                     rdfs:label "observa"@es ,
-                                                "observes"@en .
+                                     rdfs:subPropertyOf <http://www.w3.org/ns/sosa/forProperty> ;
+                                     <http://schema.org/domainIncludes> <http://www.w3.org/ns/sosa/Sensor> ;
+                                     <http://schema.org/rangeIncludes> <http://www.w3.org/ns/sosa/ObservableProperty> ,
+                                                                       <http://www.w3.org/ns/sosa/Property> ;
+                                     rdfs:comment "Relation between a Sensor and an ObservableProperty that it is capable of sensing."@en ;
+                                     rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ,
+                                                      <http://www.w3.org/ns/sosa/obs/> ;
+                                     rdfs:label "observes"@en .
 
 
 ###  http://www.w3.org/ns/sosa/phenomenonTime
 <http://www.w3.org/ns/sosa/phenomenonTime> rdf:type owl:ObjectProperty ;
-                                           rdfs:domain <http://www.w3.org/ns/sosa/Observation> ;
-                                           rdfs:range <http://www.w3.org/2006/time#ProperInterval> ;
-                                           rdfs:comment "Esta propiedad establece el intervalo de tiempo de la observación."@es ,
-                                                        "This property sets the interval of time of the observation"@en ;
-                                           rdfs:label "intervalo de tiempo"@es ,
-                                                      "time interval"@en .
+                                           <http://schema.org/domainIncludes> <http://www.w3.org/ns/sosa/Actuation> ,
+                                                                              <http://www.w3.org/ns/sosa/Observation> ,
+                                                                              <http://www.w3.org/ns/sosa/ObservationCollection> ,
+                                                                              <http://www.w3.org/ns/sosa/Sampling> ;
+                                           <http://schema.org/rangeIncludes> <http://www.w3.org/2006/time#TemporalEntity> ;
+                                           rdfs:comment "The time that the Result of an Observation, Actuation or Sampling applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an Interval or an Instant, or some other compound TemporalEntity."@en ;
+                                           rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ,
+                                                            <http://www.w3.org/ns/sosa/common/> ;
+                                           rdfs:label "phenomenon time"@en .
+
+
+###  http://www.w3.org/ns/sosa/wasObservedBy
+<http://www.w3.org/ns/sosa/wasObservedBy> rdf:type owl:ObjectProperty ;
+                                          <http://schema.org/domainIncludes> <http://www.w3.org/ns/sosa/Property> ;
+                                          <http://schema.org/rangeIncludes> <http://www.w3.org/ns/sosa/Observation> ,
+                                                                            <http://www.w3.org/ns/sosa/ObservationCollection> ;
+                                          rdfs:comment "relation from a Property to an Observation that observed it"@en ;
+                                          rdfs:isDefinedBy <http://www.w3.org/ns/sosa/obs/> ;
+                                          rdfs:label "was observed by"@en .
+
+
+###  https://edint.es/def/trafico#containsStreetSection
+:containsStreetSection rdf:type owl:ObjectProperty ;
+                       rdfs:domain <http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero#Via> ;
+                       rdfs:range :StreetSection ;
+                       rdfs:comment "A street can contain one or more street sections."@en ,
+                                    "Una calle puede contener uno o más tramos de calle."@es ;
+                       rdfs:label "contains street section"@en ,
+                                  "contiene tramo de vía"@es .
+
+
+###  https://edint.es/def/trafico#endOfSection
+:endOfSection rdf:type owl:ObjectProperty ,
+                       owl:FunctionalProperty ;
+              rdfs:domain :StreetSection ;
+              rdfs:range <http://www.opengis.net/ont/sf#Point> ;
+              rdfs:comment "Relación del tramo con el lugar donde finaliza el tramo."@es ,
+                           "Relationship of the section with the point where it ends."@en ;
+              rdfs:label "end of section"@en ,
+                         "fin del Tramo"@es .
+
+
+###  https://edint.es/def/trafico#incidentInSection
+:incidentInSection rdf:type owl:ObjectProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain :Incident ;
+                   rdfs:range :StreetSection ;
+                   rdfs:comment "Relación de la Incidencia con el Tramo donde se produce la misma."@es ,
+                                "Relationship of the Incident withe the  Section, where it happens."@en ;
+                   rdfs:label "incidencia en tramo"@es ,
+                              "incident in Section"@en .
+
+
+###  https://edint.es/def/trafico#incidentType
+:incidentType rdf:type owl:ObjectProperty ,
+                       owl:FunctionalProperty ;
+              rdfs:domain :Incident ;
+              rdfs:range [ owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept>
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ;
+                                                  owl:hasValue <https://edint.es/kos/IncidentType>
+                                                ]
+                                              ) ;
+                           rdf:type owl:Class
+                         ] ;
+              rdfs:comment "Tipo de incidencia, pueden ser planificadas o no planificadas."@es ,
+                           "Type of incident, planned or unplannedt"@en ;
+              rdfs:label "tipo de Incidencia"@es ,
+                         "type of Incident"@en .
+
+
+###  https://edint.es/def/trafico#monitors
+:monitors rdf:type owl:ObjectProperty ,
+                   owl:FunctionalProperty ;
+          rdfs:domain :TrafficEquipment ;
+          rdfs:range :StreetSection ;
+          rdfs:comment "Relación entre el dispositivo de medición de tráfico y el tramo de calle que monitoriza."@es ,
+                       "Relationship between traffic equipment and the street section it monitors."@en ;
+          rdfs:label "monitorea"@es ,
+                     "monitors"@en .
+
+
+###  https://edint.es/def/trafico#startOfSection
+:startOfSection rdf:type owl:ObjectProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:domain :StreetSection ;
+                rdfs:range <http://www.opengis.net/ont/sf#Point> ;
+                rdfs:comment "Relación del tramo con el lugar donde se inicia el tramo."@es ,
+                             "Relationship of the section with the point where it starts."@en ;
+                rdfs:label "inicio del Tramo"@es ,
+                           "start of section"@en .
+
+
+###  https://edint.es/def/trafico#trafficEquipmentType
+:trafficEquipmentType rdf:type owl:ObjectProperty ,
+                               owl:FunctionalProperty ;
+                      rdfs:domain :TrafficEquipment ;
+                      rdfs:range [ owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept>
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ;
+                                                          owl:hasValue <https://edint.es/kos/TrafficEquipmentType>
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+                      rdfs:comment "Tipo de equipo de tráfico, equipos de control y dispositivos de medición"@es ,
+                                   "Type of traffic equipment, monitor equipment or meassuring devices"@en ;
+                      rdfs:label "tipo de Equipo de Tráfico"@es ,
+                                 "type of Traffic Equipment"@en .
 
 
 #################################################################
@@ -388,10 +467,10 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
 <http://schema.org/datePosted> rdf:type owl:DatatypeProperty ;
                                rdfs:range xsd:dateTime ;
                                rdfs:comment "La fecha y hora de publicación de una incidencia (en formato fecha ISO 8601)"@es ,
-                                            "The end date and time of the incidence (in ISO 8601 date format)."@en ;
+                                            "The end date and time of the incident (in ISO 8601 date format)."@en ;
                                rdfs:isDefinedBy <https://schema.org/> ;
                                rdfs:label "fecha de publicación de incidencia"@es ,
-                                          "posted incidence date"@en .
+                                          "posted incident date"@en .
 
 
 ###  http://schema.org/endDate
@@ -399,7 +478,7 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                             rdfs:range xsd:dateTime ;
                             rdfs:comment """La fecha y hora de finalización de
 	una incidencia (en formato fecha ISO 8601)"""@es ,
-                                         "The end date and time of an incidence (in ISO 8601 date format)."@en ;
+                                         "The end date and time of an incident (in ISO 8601 date format)."@en ;
                             rdfs:isDefinedBy <https://schema.org/> ;
                             rdfs:label "end date"@en ,
                                        "fecha de fin"@es .
@@ -409,129 +488,10 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
 <http://schema.org/startDate> rdf:type owl:DatatypeProperty ;
                               rdfs:range xsd:dateTime ;
                               rdfs:comment "La fecha y hora de inicio de una incidencia (en formato fecha ISO 8601)."@es ,
-                                           "The start date and time of an incidence (in ISO 8601 date format)."@en ;
+                                           "The start date and time of an incident (in ISO 8601 date format)."@en ;
                               rdfs:isDefinedBy <https://schema.org/> ;
                               rdfs:label "(expected) start date"@en ,
                                          "fecha de inicio (prevista)"@es .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#expectedEndDate
-:expectedEndDate rdf:type owl:DatatypeProperty ;
-                 rdfs:domain :PlannedIncidence ;
-                 rdfs:range xsd:dateTime ;
-                 rdfs:comment """La fecha y hora prevista de
-	finalización de una incidencia planificada (en formato fecha ISO 8601)"""@es ,
-                              "The end date and time of a planned incidence (in ISO 8601 date format)."@en ;
-                 rdfs:isDefinedBy <https://schema.org/> ;
-                 rdfs:label "(expected) end date"@en ,
-                            "fecha de fin (prevista)"@es .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#inService
-:inService rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf owl:topDataProperty ;
-           rdfs:domain :TrafficMeasurementDevice ;
-           rdfs:range xsd:boolean ;
-           rdfs:comment "Esta propiedad permite conocer si el dispositivo funciona o no."@es ,
-                        "This property allows describing whether the device is working or not."@en ;
-           rdfs:label "en servicio"@es ,
-                      "in service"@en .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#incidenciaAdjunto
-:incidenciaAdjunto rdf:type owl:DatatypeProperty ;
-                   rdfs:domain :Incidence ;
-                   rdfs:range xsd:anyURI ;
-                   rdfs:comment "A document where more information about the incidence can be found."@en ,
-                                "Un documento donde se puede consultar la información sobre la incidencia."@es ;
-                   rdfs:isDefinedBy <http://vocab.ciudadesabiertas.es/def/transporte/trafico> ;
-                   rdfs:label "adjunto a la incidencia"@es ,
-                              "attached to incidence"@en .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#isRecurrent
-:isRecurrent rdf:type owl:DatatypeProperty ;
-             rdfs:subPropertyOf owl:topDataProperty ;
-             rdfs:domain :PlannedIncidence ;
-             rdfs:range xsd:boolean ;
-             rdfs:comment "Esta propiedad permite describir si la incidencia es recurrente o no."@es ,
-                          "This property allows describing whether there is a recurrence in the incidence or not"@en ;
-             rdfs:label "incidencia recurrente"@es ,
-                        "recurrent incidence"@en .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#measurementFrequency
-:measurementFrequency rdf:type owl:DatatypeProperty ;
-                      rdfs:subPropertyOf owl:topDataProperty ;
-                      rdfs:domain :TrafficMeasurementDevice ;
-                      rdfs:range xsd:string ;
-                      rdfs:comment "Esta propiedad permite conocer la frecuencia de medición del dispositivo."@es ,
-                                   "This property allows to know the measurement frequency of the device."@en ;
-                      rdfs:label "frecuencia Medición"@es ,
-                                 "measurement Frequency"@en .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#numDirections
-:numDirections rdf:type owl:DatatypeProperty ;
-               rdfs:domain [ rdf:type owl:Class ;
-                             owl:unionOf ( :ControlEquipment
-                                           :Incidence
-                                         )
-                           ] ;
-               rdfs:range xsd:integer ;
-               rdfs:comment "Number of directions of traffic"@en ,
-                            "Número de sentidos de circulación"@es ;
-               rdfs:isDefinedBy <http://vocab.ciudadesabiertas.es/def/transporte/trafico> ;
-               rdfs:label "sentidos de circulación"@es ,
-                          "street directions"@en .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#numLanes
-:numLanes rdf:type owl:DatatypeProperty ;
-          rdfs:domain [ rdf:type owl:Class ;
-                        owl:unionOf ( :ControlEquipment
-                                      :Incidence
-                                    )
-                      ] ;
-          rdfs:range xsd:integer ;
-          rdfs:comment "Number of lanes of traffic"@en ,
-                       "Número de carriles de circulación"@es ;
-          rdfs:isDefinedBy <http://vocab.ciudadesabiertas.es/def/transporte/trafico> ;
-          rdfs:label "carriles de circulación"@es ,
-                     "traffic lanes"@en .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#recurrence
-:recurrence rdf:type owl:DatatypeProperty ;
-            rdfs:subPropertyOf owl:topDataProperty ;
-            rdfs:domain :PlannedIncidence ;
-            rdfs:range xsd:string ;
-            rdfs:comment "Esta propiedad permite describir la recurrencia."@es ,
-                         "This property allows describing the recurrence"@en ;
-            rdfs:label "recurrence"@en ,
-                       "recurrencia"@es .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#urban
-:urban rdf:type owl:DatatypeProperty ;
-       rdfs:subPropertyOf owl:topDataProperty ;
-       rdfs:domain :ControlEquipment ;
-       rdfs:range xsd:boolean ;
-       rdfs:comment "Esta propiedad permite describir si el dispositivo es urbano o no."@es ,
-                    "This property allows knowing whether the device is urban or not"@en ;
-       rdfs:label "urban"@en ,
-                  "urbano"@es .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#validated
-:validated rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf owl:topDataProperty ;
-           rdfs:domain :TrafficObservation ;
-           rdfs:range xsd:boolean ;
-           rdfs:comment "Esta propiedad permite conocer si se ha producido una validación de la observación o no"@es ,
-                        "This property states whether the observation is validated or not."@en ;
-           rdfs:label "observación validada"@es ,
-                      "validated observation"@en .
 
 
 ###  http://www.w3.org/2003/01/geo/wgs84_pos#lat
@@ -562,31 +522,11 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                                                          "in XSD g-YearMonth"@en .
 
 
-###  http://www.w3.org/ns/sosa/hasSimpleResult
-<http://www.w3.org/ns/sosa/hasSimpleResult> rdf:type owl:DatatypeProperty ;
-                                            rdfs:subPropertyOf owl:topDataProperty ;
-                                            rdfs:range rdfs:Literal ;
-                                            rdfs:comment "Esta propiedad muestra el resultado de la observación."@es ,
-                                                         "This property shows the result of the observation"@en ;
-                                            rdfs:label "Observation Result"@en ,
-                                                       "Resultado observación"@es .
-
-
-###  http://www.w3.org/ns/sosa/resultTime
-<http://www.w3.org/ns/sosa/resultTime> rdf:type owl:DatatypeProperty ;
-                                       rdfs:subPropertyOf owl:topDataProperty ;
-                                       rdfs:range xsd:dateTime ;
-                                       rdfs:comment "Esta propiedad establece la fecha/hora de la observación."@es ,
-                                                    "This property sets the dateTime of the observation"@en ;
-                                       rdfs:label "hora Observación"@es ,
-                                                  "phenomenon Time"@en .
-
-
 ###  https://datos.ign.es/def/geo_core#xETRS89
 <https://datos.ign.es/def/geo_core#xETRS89> rdf:type owl:DatatypeProperty ;
                                             rdfs:domain <http://www.opengis.net/ont/sf#Point> ;
                                             rdfs:range xsd:float ;
-                                            <http://purl.org/dc/elements/1.1/source> "Catálogo de Objetos Geográficos BTN100."@es ;
+                                            <http://purl.org/dc/terms/source> "Catálogo de Objetos Geográficos BTN100."@es ;
                                             rdfs:comment "Coordenada X en metros (ETRS89)"@es ,
                                                          "X-Coordinate in meters (ETRS89)"@en ;
                                             rdfs:label "xETRS89" .
@@ -596,10 +536,126 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
 <https://datos.ign.es/def/geo_core#yETRS89> rdf:type owl:DatatypeProperty ;
                                             rdfs:domain <http://www.opengis.net/ont/sf#Point> ;
                                             rdfs:range xsd:float ;
-                                            <http://purl.org/dc/elements/1.1/source> "Catálogo de Objetos Geográficos BTN100."@es ;
+                                            <http://purl.org/dc/terms/source> "Catálogo de Objetos Geográficos BTN100."@es ;
                                             rdfs:comment "Coordenada Y en metros (ETRS89)"@es ,
                                                          "Y-Coordinate in meters (ETRS89)"@en ;
                                             rdfs:label "yETRS89" .
+
+
+###  https://edint.es/def/trafico#expectedEndDate
+:expectedEndDate rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :PlannedIncident ;
+                 rdfs:range xsd:dateTime ;
+                 rdfs:comment """La fecha y hora prevista de
+	finalización de una incidencia planificada (en formato fecha ISO 8601)"""@es ,
+                              "The end date and time of a planned incident (in ISO 8601 date format)."@en ;
+                 rdfs:isDefinedBy <https://schema.org/> ;
+                 rdfs:label "(expected) end date"@en ,
+                            "fecha de fin (prevista)"@es .
+
+
+###  https://edint.es/def/trafico#inService
+:inService rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :TrafficMeasurementDevice ;
+           rdfs:range xsd:boolean ;
+           rdfs:comment "Esta propiedad permite conocer si el dispositivo funciona o no."@es ,
+                        "This property allows describing whether the device is working or not."@en ;
+           rdfs:label "en servicio"@es ,
+                      "in service"@en .
+
+
+###  https://edint.es/def/trafico#incidentAttachment
+:incidentAttachment rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Incident ;
+                    rdfs:range xsd:anyURI ;
+                    rdfs:comment "A document where more information about the incident can be found."@en ,
+                                 "Un documento donde se puede consultar la información sobre la incidencia."@es ;
+                    rdfs:label "adjunto a la incidencia"@es ,
+                               "attached to incident"@en .
+
+
+###  https://edint.es/def/trafico#isRecurrent
+:isRecurrent rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :PlannedIncident ;
+             rdfs:range xsd:boolean ;
+             rdfs:comment "Esta propiedad permite describir si la incidencia es recurrente o no."@es ,
+                          "This property allows describing whether there is a recurrence in the incident or not"@en ;
+             rdfs:label "incidencia recurrente"@es ,
+                        "recurrent incident"@en .
+
+
+###  https://edint.es/def/trafico#measurementFrequency
+:measurementFrequency rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf owl:topDataProperty ;
+                      rdfs:domain :TrafficMeasurementDevice ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment "Esta propiedad permite conocer la frecuencia de medición del dispositivo."@es ,
+                                   "This property allows to know the measurement frequency of the device."@en ;
+                      rdfs:label "frecuencia Medición"@es ,
+                                 "measurement Frequency"@en .
+
+
+###  https://edint.es/def/trafico#numDirections
+:numDirections rdf:type owl:DatatypeProperty ;
+               rdfs:domain [ rdf:type owl:Class ;
+                             owl:unionOf ( :ControlEquipment
+                                           :Incident
+                                         )
+                           ] ;
+               rdfs:range xsd:integer ;
+               rdfs:comment "Number of directions of traffic"@en ,
+                            "Número de sentidos de circulación"@es ;
+               rdfs:label "sentidos de circulación"@es ,
+                          "street directions"@en .
+
+
+###  https://edint.es/def/trafico#numLanes
+:numLanes rdf:type owl:DatatypeProperty ;
+          rdfs:domain [ rdf:type owl:Class ;
+                        owl:unionOf ( :ControlEquipment
+                                      :Incident
+                                    )
+                      ] ;
+          rdfs:range xsd:integer ;
+          rdfs:comment "Number of lanes of traffic"@en ,
+                       "Número de carriles de circulación"@es ;
+          rdfs:label "carriles de circulación"@es ,
+                     "traffic lanes"@en .
+
+
+###  https://edint.es/def/trafico#recurrence
+:recurrence rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :PlannedIncident ;
+            rdfs:range xsd:string ;
+            rdfs:comment "Esta propiedad permite describir la recurrencia."@es ,
+                         "This property allows describing the recurrence"@en ;
+            rdfs:label "recurrence"@en ,
+                       "recurrencia"@es .
+
+
+###  https://edint.es/def/trafico#urban
+:urban rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty ;
+       rdfs:domain :ControlEquipment ;
+       rdfs:range xsd:boolean ;
+       rdfs:comment "Esta propiedad permite describir si el dispositivo es urbano o no."@es ,
+                    "This property allows knowing whether the device is urban or not"@en ;
+       rdfs:label "urban"@en ,
+                  "urbano"@es .
+
+
+###  https://edint.es/def/trafico#validated
+:validated rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :TrafficObservation ;
+           rdfs:range xsd:boolean ;
+           rdfs:comment "Esta propiedad permite conocer si se ha producido una validación de la observación o no."@es ,
+                        "This property states whether the observation is validated or not."@en ;
+           rdfs:label "observación validada"@es ,
+                      "validated observation"@en .
 
 
 #################################################################
@@ -642,107 +698,6 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                                               "Represents a collection of people organized together into a community or other social, commercial or political structure."@en ;
                                  rdfs:label "Organización"@es ,
                                             "Organization"@en .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#ControlEquipment
-:ControlEquipment rdf:type owl:Class ;
-                  rdfs:subClassOf :TrafficEquipment ;
-                  owl:disjointWith :Incidence ,
-                                   :StreetSection ;
-                  rdfs:comment "An equipment monitors that controls properties of a specific vehicle such as its speed or the access to certain city areas."@en ,
-                               "Un equipo que controla propiedades de un vehículo específico, como su velocidad o el acceso a ciertas áreas de la ciudad."@es ;
-                  rdfs:isDefinedBy <http://vocab.ciudadesabiertas.es/def/transporte/trafico> ;
-                  rdfs:label "Control equipment"@en ,
-                             "Equipo de control"@es .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#Incidence
-:Incidence rdf:type owl:Class ;
-           rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature> ;
-           owl:disjointWith :StreetSection ;
-           rdfs:comment "Incidence in the traffic system of a city"@en ,
-                        "Incidencia que ocurre en el sistema de tráfico de una ciudad"@es ;
-           rdfs:isDefinedBy <http://vocab.ciudadesabiertas.es/def/transporte/trafico> ;
-           rdfs:label "Incidence"@en ,
-                      "Incidencia"@es .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#PlannedIncidence
-:PlannedIncidence rdf:type owl:Class ;
-                  rdfs:subClassOf :Incidence ;
-                  rdfs:comment "Incidencia planificada, puede ser recurrente o no"@es ,
-                               "Planned traffic incidence"@en ;
-                  rdfs:isDefinedBy <http://vocab.ciudadesabiertas.es/def/transporte/trafico> ;
-                  rdfs:label "Incidencia planificada"@es ,
-                             "Planned incidence"@en .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#StreetSection
-:StreetSection rdf:type owl:Class ;
-               rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature> ;
-               rdfs:comment "Section/s defined by a starting and an ending point that can belong to one or more street."@en ,
-                            "Tramo definido por un punto de inicio y fin que puede pertenecer a una o más vías"@es ;
-               rdfs:isDefinedBy <http://vocab.ciudadesabiertas.es/def/transporte/trafico> ;
-               rdfs:label "Street section"@en ,
-                          "Tramo"@es .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#TrafficEquipment
-:TrafficEquipment rdf:type owl:Class ;
-                  rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature> ,
-                                  <http://www.w3.org/ns/sosa/Sensor> ;
-                  rdfs:comment "Equipment that allows measuring vehicle traffic or some property of a specific vehicle such as its speed."@en ;
-                  rdfs:label "Equipo de tráfico"@es ,
-                             "Equipo que permite medir el tráfico de vehículos o alguna propiedad de un vehículo específico como por ejemplo su velocidad."@es ,
-                             "Traffic equipment"@en .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#TrafficMeasurementDevice
-:TrafficMeasurementDevice rdf:type owl:Class ;
-                          rdfs:subClassOf :TrafficEquipment ;
-                          rdfs:comment "Tipo de dispositivo de tráfico que realiza mediciones de propiedades como el nivel de servicio, la intensidad del tráfico y la carga de tráfico."@es ,
-                                       "Type of traffic device which performs measurementsof properties such as service level, traffic intensity and traffic load."@en ;
-                          rdfs:isDefinedBy <http://vocab.ciudadesabiertas.es/def/transporte/trafico> ;
-                          rdfs:label "Dispositivo de medición de tráfico"@es ,
-                                     "Traffic measuring device"@en .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#TrafficObservation
-:TrafficObservation rdf:type owl:Class ;
-                    rdfs:subClassOf <http://www.w3.org/ns/sosa/Observation> ;
-                    rdfs:comment "Observación mediante un dispositivo de medición de tráfico o un equipo de control, como radares de velocidad o sistemas de reconocimiento automático de matrículas (ANPR)."@es ,
-                                 "Observation by a traffic measuring device or a control equipment such as speed cameras or Automatic Number Plate Recognition (ANPR) systems."@en ;
-                    rdfs:isDefinedBy <http://vocab.ciudadesabiertas.es/def/transporte/trafico> ;
-                    rdfs:label "Observación del tráfico"@es ,
-                               "Traffic observation"@en .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#TrafficObservationPoint
-:TrafficObservationPoint rdf:type owl:Class ;
-                         rdfs:subClassOf <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
-                         rdfs:comment "Points where traffic or specific vehicle observations can be made using sensors."@en ,
-                                      "Puntos en donde se pueden realizar observaciones de tráfico o de vehículos específicos."@es ;
-                         rdfs:label "Punto de observación de tráfico"@es ,
-                                    "Traffic observation point"@en .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#TrafficProperty
-:TrafficProperty rdf:type owl:Class ;
-                 rdfs:subClassOf <http://www.w3.org/ns/sosa/ObservableProperty> ;
-                 rdfs:comment "Generalización de las propiedades observables de medición de tráfico y las propiedades observables de control de vehículos específicos."@es ,
-                              "Generalization of the observable properties of traffic measurement and the observable properties of control of specific vehicles."@en ;
-                 rdfs:label "Propiedad de tráfico"@es ,
-                            "Traffic property"@en .
-
-
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#UnplannedIncidence
-:UnplannedIncidence rdf:type owl:Class ;
-                    rdfs:subClassOf :Incidence ;
-                    rdfs:comment "Incidencia no planificada del tráfico de una ciudad"@es ,
-                                 "Unplanned traffic incidence"@en ;
-                    rdfs:isDefinedBy <http://vocab.ciudadesabiertas.es/def/transporte/trafico> ;
-                    rdfs:label "Incidencia no planificada"@es ,
-                               "Unplanned incidence"@en .
 
 
 ###  http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/callejero#Via
@@ -862,7 +817,6 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                                               rdfs:comment "The thing whose property is being estimated or calculated in the course of an Observation to arrive at a Result or whose property is being manipulated by an Actuator, or which is being sampled or transformed in an act of Sampling."@en ;
                                               rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
                                               rdfs:label "Feature Of Interest"@en ;
-                                              <http://www.w3.org/2004/02/skos/core#definition> "The thing whose property is being estimated or calculated in the course of an Observation to arrive at a Result or whose property is being manipulated by an Actuator, or which is being sampled or transformed in an act of Sampling."@en ;
                                               <http://www.w3.org/2004/02/skos/core#example> "When measuring the height of a tree, the height is the observed ObservableProperty, 20m may be the Result of the Observation, and the tree is the FeatureOfInterest. A window is a FeatureOfInterest for an automatic window control Actuator."@en .
 
 
@@ -871,7 +825,6 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                                                rdfs:comment "An observable quality (property, characteristic) of a FeatureOfInterest."@en ;
                                                rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
                                                rdfs:label "Observable Property"@en ;
-                                               <http://www.w3.org/2004/02/skos/core#definition> "An observable quality (property, characteristic) of a FeatureOfInterest."@en ;
                                                <http://www.w3.org/2004/02/skos/core#example> "The height of a tree, the depth of a water body, or the temperature of a surface are examples of observable properties, while the value of a classic car is not (directly) observable but asserted."@en .
 
 
@@ -880,7 +833,6 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                                         rdfs:comment "Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a FeatureOfInterest. Links to a Sensor to describe what made the Observation and how; links to an ObservableProperty to describe what the result is an estimate of, and to a FeatureOfInterest to detail what that property was associated with"@en ;
                                         rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
                                         rdfs:label "Observation"@en ;
-                                        <http://www.w3.org/2004/02/skos/core#definition> "Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a FeatureOfInterest. Links to a Sensor to describe what made the Observation and how; links to an ObservableProperty to describe what the result is an estimate of, and to a FeatureOfInterest to detail what that property was associated with."@en ;
                                         <http://www.w3.org/2004/02/skos/core#example> "The activity of estimating the intensity of an Earthquake using the Mercalli intensity scale is an Observation as is measuring the moment magnitude, i.e., the energy released by said earthquake."@en .
 
 
@@ -889,15 +841,108 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                                    rdfs:comment "Device, agent (including humans), or software (simulation) involved in, or implementing, a Procedure. Sensors respond to a stimulus, e.g., a change in the environment, or input data composed from the results of prior Observations, and generate a Result. Sensors can be hosted by Platforms."@en ;
                                    rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
                                    rdfs:label "Sensor"@en ;
-                                   <http://www.w3.org/2004/02/skos/core#definition> "Device, agent (including humans), or software (simulation) involved in, or implementing, a Procedure. Sensors respond to a stimulus, e.g., a change in the environment, or input data composed from the results of prior Observations, and generate a Result. Sensors can be hosted by Platforms."@en ;
                                    <http://www.w3.org/2004/02/skos/core#example> "Accelerometers, gyroscopes, barometers, magnetometers, and so forth are Sensors that are typically mounted on a modern smart phone (which acts as Platform). Other examples of sensors include the human eyes."@en .
+
+
+###  https://edint.es/def/trafico#ControlEquipment
+:ControlEquipment rdf:type owl:Class ;
+                  rdfs:subClassOf :TrafficEquipment ;
+                  owl:disjointWith :Incident ,
+                                   :StreetSection ;
+                  rdfs:comment "An equipment monitors that controls properties of a specific vehicle such as its speed or the access to certain city areas."@en ,
+                               "Un equipo que controla propiedades de un vehículo específico, como su velocidad o el acceso a ciertas áreas de la ciudad."@es ;
+                  rdfs:label "Control equipment"@en ,
+                             "Equipo de control"@es .
+
+
+###  https://edint.es/def/trafico#Incident
+:Incident rdf:type owl:Class ;
+          rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature> ;
+          owl:disjointWith :StreetSection ;
+          rdfs:comment "Incidencia que ocurre en el sistema de tráfico de una ciudad"@es ,
+                       "Incident in the traffic system of a city"@en ;
+          rdfs:label "Incidencia"@es ,
+                     "Incident"@en .
+
+
+###  https://edint.es/def/trafico#PlannedIncident
+:PlannedIncident rdf:type owl:Class ;
+                 rdfs:subClassOf :Incident ;
+                 rdfs:comment "Incidencia planificada, puede ser recurrente o no"@es ,
+                              "Planned traffic incident"@en ;
+                 rdfs:label "Incidencia planificada"@es ,
+                            "Planned incident"@en .
+
+
+###  https://edint.es/def/trafico#StreetSection
+:StreetSection rdf:type owl:Class ;
+               rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature> ;
+               rdfs:comment "Section/s defined by a starting and an ending point that can belong to one or more street."@en ,
+                            "Tramo definido por un punto de inicio y fin que puede pertenecer a una o más vías"@es ;
+               rdfs:label "Street section"@en ,
+                          "Tramo"@es .
+
+
+###  https://edint.es/def/trafico#TrafficEquipment
+:TrafficEquipment rdf:type owl:Class ;
+                  rdfs:subClassOf <http://www.opengis.net/ont/geosparql#Feature> ,
+                                  <http://www.w3.org/ns/sosa/Sensor> ;
+                  rdfs:comment "Equipment that allows measuring vehicle traffic or some property of a specific vehicle such as its speed."@en ;
+                  rdfs:label "Equipo de tráfico"@es ,
+                             "Equipo que permite medir el tráfico de vehículos o alguna propiedad de un vehículo específico como por ejemplo su velocidad."@es ,
+                             "Traffic equipment"@en .
+
+
+###  https://edint.es/def/trafico#TrafficMeasurementDevice
+:TrafficMeasurementDevice rdf:type owl:Class ;
+                          rdfs:subClassOf :TrafficEquipment ;
+                          rdfs:comment "Tipo de dispositivo de tráfico que realiza mediciones de propiedades como el nivel de servicio, la intensidad del tráfico y la carga de tráfico."@es ,
+                                       "Type of traffic device which performs measurementsof properties such as service level, traffic intensity and traffic load."@en ;
+                          rdfs:label "Dispositivo de medición de tráfico"@es ,
+                                     "Traffic measuring device"@en .
+
+
+###  https://edint.es/def/trafico#TrafficObservation
+:TrafficObservation rdf:type owl:Class ;
+                    rdfs:subClassOf <http://www.w3.org/ns/sosa/Observation> ;
+                    rdfs:comment "Observación mediante un dispositivo de medición de tráfico o un equipo de control, como radares de velocidad o sistemas de reconocimiento automático de matrículas (ANPR)."@es ,
+                                 "Observation by a traffic measuring device or a control equipment such as speed cameras or Automatic Number Plate Recognition (ANPR) systems."@en ;
+                    rdfs:label "Observación del tráfico"@es ,
+                               "Traffic observation"@en .
+
+
+###  https://edint.es/def/trafico#TrafficObservationPoint
+:TrafficObservationPoint rdf:type owl:Class ;
+                         rdfs:subClassOf <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
+                         rdfs:comment "Points where traffic or specific vehicle observations can be made using sensors."@en ,
+                                      "Puntos en donde se pueden realizar observaciones de tráfico o de vehículos específicos."@es ;
+                         rdfs:label "Punto de observación de tráfico"@es ,
+                                    "Traffic observation point"@en .
+
+
+###  https://edint.es/def/trafico#TrafficProperty
+:TrafficProperty rdf:type owl:Class ;
+                 rdfs:subClassOf <http://www.w3.org/ns/sosa/ObservableProperty> ;
+                 rdfs:comment "Generalización de las propiedades observables de medición de tráfico y las propiedades observables de control de vehículos específicos."@es ,
+                              "Generalization of the observable properties of traffic measurement and the observable properties of control of specific vehicles."@en ;
+                 rdfs:label "Propiedad de tráfico"@es ,
+                            "Traffic property"@en .
+
+
+###  https://edint.es/def/trafico#UnplannedIncident
+:UnplannedIncident rdf:type owl:Class ;
+                   rdfs:subClassOf :Incident ;
+                   rdfs:comment "Incidencia no planificada del tráfico de una ciudad"@es ,
+                                "Unplanned traffic incident"@en ;
+                   rdfs:label "Incidencia no planificada"@es ,
+                              "Unplanned incident"@en .
 
 
 #################################################################
 #    Individuals
 #################################################################
 
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#composition
+###  https://edint.es/def/trafico#composition
 :composition rdf:type owl:NamedIndividual ,
                       :TrafficProperty ;
              rdfs:comment "It is obtained by the equation of intensity and time of occupation with certain correction factors. It is expressed as a percentage: a 100% load implies circulatory collapse, interrupted circulation, while 0% implies empty street. It is similar to the Level of Service of the road that is usually measured with the letters A, B, C, D, E and F: level A, between 0% and 20% load; level F, between 90% and 100% load. The level of service is complex to measure and that is why the load is used."@en ,
@@ -906,7 +951,7 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                         "composition"@en .
 
 
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#density
+###  https://edint.es/def/trafico#density
 :density rdf:type owl:NamedIndividual ,
                   :TrafficProperty ;
          rdfs:comment "Property that points out the number of vehicles  occupying a section of roadway (highway, carriageway, or lane) per unit of length at a given moment. It is a key congestion indicator that reduces speed."@en ,
@@ -915,7 +960,7 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                     "traffic density"@en .
 
 
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#intensity
+###  https://edint.es/def/trafico#intensity
 :intensity rdf:type owl:NamedIndividual ,
                     :TrafficProperty ;
            rdfs:comment "Intensidad o aforo, número de vehículos en unidad de tiempo (hora, día, mes año). Los habituales son hora y día."@es ,
@@ -924,7 +969,7 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                       "traffic intensity"@en .
 
 
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#level
+###  https://edint.es/def/trafico#level
 :level rdf:type owl:NamedIndividual ,
                 :TrafficProperty ;
        rdfs:comment "Calculado a partir de la velocidad, requiere una ecuación o unos niveles de velocidad asociados: verde, fluido; amarillo, lento; naranja, denso; rojo, congestión; negro, circulación interrumpida; gris, sin datos"@es ,
@@ -933,7 +978,7 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                   "nivel"@es .
 
 
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#load
+###  https://edint.es/def/trafico#load
 :load rdf:type owl:NamedIndividual ,
                :TrafficProperty ;
       rdfs:comment "It is obtained by the equation of intensity and time of occupation with certain correction factors. It is expressed as a percentage: a 100% load implies circulatory collapse, interrupted circulation, while 0% implies empty street. It is similar to the Level of Service of the road that is usually measured with the letters A, B, C, D, E and F: level A, between 0% and 20% load; level F, between 90% and 100% load. The level of service is complex to measure and that is why the load is used."@en ,
@@ -942,7 +987,7 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                  "traffic load"@en .
 
 
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#occupation
+###  https://edint.es/def/trafico#occupation
 :occupation rdf:type owl:NamedIndividual ,
                      :TrafficProperty ;
             rdfs:comment "Es la ocupación del detector mientras está pasando por encima un vehículo, está asociado a detectores tipo espira electromagnética, y es el tiempo desde que el detector detecta al vehículo hasta que deja detectarlo."@es ,
@@ -951,7 +996,7 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                        "ocupación"@es .
 
 
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#speed
+###  https://edint.es/def/trafico#speed
 :speed rdf:type owl:NamedIndividual ,
                 :TrafficProperty ;
        rdfs:comment "Directly meassured speed with detectors"@en ,
@@ -960,27 +1005,27 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                   "velocidad"@es .
 
 
-###  http://vocab.linkeddata.es/datosabiertos/def/transporte/trafico#vehicleAccess
+###  https://edint.es/def/trafico#vehicleAccess
 :vehicleAccess rdf:type owl:NamedIndividual ,
                         :TrafficProperty ;
-               rdfs:comment "Determina si en un vehículo ha pasado por un punto de acceso determinado, por ejemplo un punto de entrada a una zona de bajas emisiones."@en ,
-                            "Determina si en un vehículo ha pasado por un punto de acceso determinado, por ejemplo un punto de entrada a una zona de bajas emisiones."@es ;
+               rdfs:comment "Determina si en un vehículo ha pasado por un punto de acceso determinado, por ejemplo un punto de entrada a una zona de bajas emisiones."@es ,
+                            "Determines if a vehicle has passed through a specific access point, for example an entry point to a low-emission zone."@en ;
                rdfs:label "acceso de vehículo"@es ,
                           "vehicle access"@en .
 
 
-###  http://vocab.linkeddata.es/datosabiertos/kos/edint/IncidenceType
-<http://vocab.linkeddata.es/datosabiertos/kos/edint/IncidenceType> rdf:type owl:NamedIndividual ,
-                                                                            <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                   rdfs:label "tipo de incidencia"@es ,
-                                                                              "type of incidence"@en .
+###  https://edint.es/kos/IncidentType
+<https://edint.es/kos/IncidentType> rdf:type owl:NamedIndividual ,
+                                             <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                    rdfs:label "tipo de incidencia"@es ,
+                                               "type of incident"@en .
 
 
-###  http://vocab.linkeddata.es/datosabiertos/kos/edint/TrafficEquipmentType
-<http://vocab.linkeddata.es/datosabiertos/kos/edint/TrafficEquipmentType> rdf:type owl:NamedIndividual ,
-                                                                                   <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
-                                                                          rdfs:label "tipo de equipo de tráfico"@es ,
-                                                                                     "type of traffic devices"@en .
+###  https://edint.es/kos/TrafficEquipmentType
+<https://edint.es/kos/TrafficEquipmentType> rdf:type owl:NamedIndividual ,
+                                                     <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                                            rdfs:label "tipo de equipo de tráfico"@es ,
+                                                       "type of traffic devices"@en .
 
 
 #################################################################
@@ -992,6 +1037,12 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                                    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
                                    rdfs:label "Creado"@es ,
                                               "Created"@en .
+
+
+<http://purl.org/dc/terms/issued> <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#issued-003> ;
+                                  rdfs:comment "Date of formal issuance (e.g., publication) of the resource."@en ;
+                                  rdfs:isDefinedBy "http://purl.org/dc/terms/"@en ;
+                                  rdfs:label "Date Issued"@en .
 
 
 ###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
