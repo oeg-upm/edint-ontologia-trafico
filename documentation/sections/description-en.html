@@ -1,4 +1,155 @@
-<h2 id="desc" class="list">Trafico: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
-<span class="markdown">
-This is a placeholder text for the description of your ontology. The description should include an explanation and a diagram explaining how the classes are related, examples of usage, etc.</span>
+<h2 id="desc" class="list">Traffic: Description <span class="backlink"> back to <a href="#toc">index</a></span></h2>
+<span class="markdown"><p>This vocabulary represents traffic information for cities, which includes motor vehicles and excludes other types of vehicles or pedestrians.</p>
+<p>Therefore, the scope of this vocabulary is defined as follows:</p>
+<ul>
+<li>Traffic equipment, including traffic measurement devices and those for specific vehicle observations (e.g., speed cameras): measurements they obtain, location of the devices, and road sections they measure.</li>
+<li>Traffic-related incidents on public roads.</li>
+<li>Section observed by the device or where the incident occurs.</li>
+</ul>
+<p>Figure 1 shows the classes and properties of traffic equipment that perform the measurements.
+<div><center><img src="images/diagrama-conceptual-sensors.png" alt="Conceptual diagram of the sensors"/><figcaption>Figure 1. - Conceptual diagram of traffic equipment.</figcaption></center></div>
+</p>
+
+<p>To represent the equipment, the concept <a href="#TrafficEquipment">Traffic Equipment</a> has been created, which is related through the property <a href="#trafficEquipmentType">Traffic Equipment Type</a> to a concept in the corresponding <a href="#https://edint.es/kos/TrafficEquipmentType">taxonomy</a>. It has the following properties: a device identifier <a href="#http://purl.org/dc/terms/identifier" >dct:identifier</a>, a description <a href="#http://purl.org/dc/terms/description">dct:description</a>, <a href="#numDirections" >number of directions of traffic</a> it serves, the <a href="#numLanes">number of lanes</a>, and whether it is urban or not (<a href="#urban" >edinttraf:urban</a>).
+
+<p>The device  <a href="#monitors">monitors</a> a <a href="#StreetSection">section</a>, which is a class used to describe both the sections monitored by the devices and the sections of road affected by an <a href="#Incident">Incident</a>. There are two types of traffic equipment: <a href="#ControlEquipment">traffic control equipment</a> that performs measurements on specific vehicles and <a href="TrafficMeasurementDevice">traffic measurement devices</a>. Both, with their corresponding subtypes, are defined in the aforementioned traffic equipment type taxonomy. The class representing traffic devices is itself a subclass of <a href="#http://www.w3.org/ns/sosa/Sensor">sosa:Sensor</a> of the <a href="https://www.w3.org/TR/vocab-ssn/">SSN (Semantic Sensors Network Ontology)</a>.</p>
+
+<p>A traffic device <a href="#http://www.w3.org/ns/sosa/observes">observes</a> a <a href="#TrafficProperty">traffic property</a> that is a subclass of <a href="#http://www.w3.org/ns/sosa/ObservableProperty">sosa:ObservableProperty</a>.</p> Specifically, the traffic measurement device has attributes that indicate whether it is in service or not (<a href="#inService">inService</a>) and the measurement frequency (<a href="#measurementFrequency">measurementFrequency</a>).
+
+The class representing traffic measurement properties has several instances that are the defined measurements: <a href="#intensity">intensity</a>, <a href="#occupation">occupancy</a>, <a href="#load">load</a>, <a href="#speed">speed</a>, <a href="#level">level</a>, <a href="#composition">composition</a>, <a href="#density">density</a>, and <a href="#vehicleAccess">vehicle access</a>.
+
+The class <a href="#TrafficObservation">traffic observation</a> is a subclass of <a href="#http://www.w3.org/ns/sosa/Observation">sosa:Observation</a>, which has a  <a href="#validated">validated</a> property that represents whether the observation has been validated or not. The time at which the observation was made is expressed through the property <a href="#http://www.w3.org/ns/sosa/phenomenonTime">sosa:phenomenonTime</a>, which links to the class <a href="#http://www.w3.org/2006/time#TemporalEntity">time:TemporalEntity</a>, which represents a time interval or a point in time. Finally, the observation has a feature of interest <a href="#https://www.w3.org/ns/sosa/hasFeatureOfInterest">sosa:hasFeatureOfInterest</a> which is a specific <a href="#TrafficObservationPoint">traffic observation point</a> where the observation is made.</p>
+<!-- INCIDENT -->
+
+<p>Figure 2 shows the classes and properties of traffic incidents.
+
+<div><center><img src="images/diagrama-conceptual-incident.png" alt="Conceptual diagram of traffic incidents"/><figcaption>Figure 2. - Conceptual diagram of traffic incidents.</figcaption></center></div>
+
+</p>
+
+<p>The main concept in this figure is the <a href="#Incident">incident</a>, which is related to the <a href="#StreetSection">section</a> through the <a href="#incidentInSection">incident in section</a> property.
+
+<p> Since it is a subclass of <a href="#http://www.opengis.net/ont/geosparql#Feature">geosparql:Feature</a>, it has the property <a href="#http://www.opengis.net/ont/geosparql#hasGeometry">geosparql:hasGeometry</a> that links to its location at a geographic point <a href="#http://www.opengis.net/ont/sf#Point">sf:Point</a> whose attributes are its coordinates. It is also related to the taxonomy of <a href="#https://edint.es/kos/IncidentType">incident types</a> through the property <a href="#incidentType">incident type</a>.
+
+
+The <a href="#Incident">edinttraf:Incident</a> has an identifier <a href="#http://purl.org/dc/terms/identifier">dct:identifier</a>, a description <a href="#http://purl.org/dc/terms/description">dct:description</a>, a start date <a href="#https://schema.org/startDate">schema:startDate</a>, an end date <a href="#https://schema.org/endDate">schema:endDate</a>, the <a href="#numDirections">number of directions it affects</a> and the <a href="#numLanes">number of lanes</a>. 
+It has two subclasses: <a href="#PlannedIncident">planned incident</a> and <a href="#UnplannedIncident">unplanned incident</a>, for incidents that occurred unexpectedly.</p>
+
+<p>To facilitate understanding the use of some classes and properties in this vocabulary, some examples are provided below:</p>
+
+<h4>Traffic Equipment</h4>
+
+<p>First, for the representation of traffic equipment, the equipment has an identifier, a description, and, if it is a measuring device, whether it is in service and the measurement frequency. It can also be specified how many directions the device monitors, how many lanes, and whether it is urban or non-urban equipment.
+It is linked through the traffic equipment type property to the corresponding device type in the traffic equipment type taxonomy, in this case, pneumatic tube.</p>
+
+<pre><textarea style="resize:none" readonly id="code2" name="code" rows="25" cols="100">
+  &lt;https://example.org/recurso/equipotrafico/100&gt; a edinttraf:TrafficMeasurementDevice ;
+    dct:identifier "100"^^xsd:string ;
+    dct:description "C. GRAN VIA;San Bernardo-Garcia Molinas;San Bernardo"^^xsd:string ;
+    sosa:observes &lt;https://example.org/recurso/carga&gt; ;
+    edinttraf:numDirections "2"^^xsd:int ;
+    edinttraf:numCLanes "8"^^xsd:integer ;
+    edinttraf:urban "true"^^xsd:boolean ;
+    edinttraf:inService "true"^^xsd:boolean ;
+    edinttraf:measurementFrequency "5 minutos"^^xsd:string ;
+    edinttraf:monitors &lt;https://example.org/recurso/tramo/100&gt; ;
+    edinttraf:trafficEquipmentType &lt;https://edint.es/kos/trafficequipment/tubo-neumatico&gt; .
+  </textarea></pre>
+  <script>
+      var editor2 = CodeMirror.fromTextArea(document.getElementById("code2"), {
+          mode: "text/turtle",
+          matchBrackets: true
+      });
+       editor2.setSize(null, "200px"); // ancho automático, altura menor
+  </script>
+
+<h4>Traffic Observation</h4>
+
+<p>The traffic observation class is related to the "load" property through the sosa:observedProperty property. The validated property indicates whether the data has been validated or not. The sosa:phenomenonTime property, which is related to the time:TemporalEntity class as explained previously, is used to represent the data recording interval.</p>
+
+<p>Observation:</p>
+  <pre><textarea style="resize:none" readonly id="code3" name="code" rows="25" cols="100">
+   &lt;https://example.org/recurso/observaciontrafico/20200423114500&gt; a edinttraf:ObservacionTrafico ;
+    dct:identifier "100-20200423114500"^^xsd:string ;
+    sosa:resultTime "2020-04-23T11:45:00+02:00"^^xsd:dateTime ;
+    sosa:hasResult  &lt;https://example.org/recurso/quantityvalue/20200423114500&gt;;
+    edinttraf:validated "true"^^xsd:boolean ;
+    sosa:madeBySensor &lt;https://example.org/recurso/equipo-trafico/100&gt; ;
+    sosa:observedProperty &lt;https://example.org/recurso/carga&gt; ;
+    sosa:hasFeatureOfInterest &lt;https://example.org/recurso/punto-observacion-trafico/1234&gt; ;
+    sosa:phenomenonTime &lt;https://example.org/recurso/interval/20200423114500&gt; .
+  </textarea></pre>
+  <script>
+      var editor2 = CodeMirror.fromTextArea(document.getElementById("code3"), {
+          mode: "text/turtle",
+          matchBrackets: true
+      });
+      editor2.setSize(null, "160px"); // ancho automático, altura menor
+  </script>
+
+  <p>Observation interval:</p>
+  <pre><textarea style="resize:none" readonly id="code4" name="code" rows="25" cols="100">
+    &lt;https://example.org/recurso/interval/20200423114500&gt; a time:Interval ;
+    time:hasBegining &lt;https://example.org/recurso/instant/20200423114455&gt; ;
+    time:hasEnd &lt;https://example.org/recurso/instant/202004231145000&gt; .
+
+    &lt;https://example.org/recurso/instant/20200423114455&gt; a time:Instant ;
+    time:inXSDgYearMonth "2020-04-23T11:44:55+02:00"^^xsd:dateTime .
+
+    &lt;https://example.org/recurso/instant/20200423114500&gt; a time:Instant ;
+    time:inXSDgYearMonth "2020-04-23T11:45:00+02:00"^^xsd:dateTime .
+    </textarea></pre>
+    <script>
+        var editor2 = CodeMirror.fromTextArea(document.getElementById("code4"), {
+            mode: "text/turtle",
+            matchBrackets: true
+        });
+        editor2.setSize(null, "160px"); // ancho automático, altura menor
+    </script>
+
+    <h4>Where it appears</h4>
+
+<p>This Observation appears via sosa:hasFeatureOfInterest which relates to the traffic observation point.</p>
+<pre><textarea style="resize:none" readonly id="code5" name="code" rows="25" cols="100">
+    &lt;https://example.org/recurso/punto-observacion-trafico/1234&gt;; a edinttraf:TrafficObservationPoint ;
+    geosparql:hasGeometry &lt;https://example.org/recurso/point/100&gt; ;
+    geo:lat &lt;https://example.org/recurso/point/100&gt; ;
+    geo:long &lt;https://example.org/recurso/point/101&gt; ;.
+  </textarea></pre>
+  <script>
+      var editor2 = CodeMirror.fromTextArea(document.getElementById("code5"), {
+          mode: "text/turtle",
+          matchBrackets: true
+      });
+      editor2.setSize(null, "100px"); // ancho automático, altura menor
+  </script>
+  <h4>Incident</h4>
+
+<p>To represent an incident, an instance of the Incident class has been created, which has the properties described above: an incident creation date, a start date, an end date, a projected end date, the number of directions, the number of lanes, whether it is recurring, and if so, the reason for the recurrence.</p>
+<pre><textarea style="resize:none" readonly id="code6" name="code" rows="25" cols="100">
+    &lt;https://example.org/recurso/incidenciaplanificada/1000&gt; a edinttraf:Incidencia ;
+    dct:identifier "1000"^^xsd:string ;
+    dct:description "EXP-2020/22329 Plaza Humilladero-Almendro"^^xsd:string ;
+    schema:startDate "2020-03-12T16:00:00+02:00"^^xsd:dateTime ;
+    schema:endDate "2020-03-13T23:00:00+02:00"^^xsd:dateTime ;
+    edinttraf:expectedEndDate "2028-03-08T23:00:00+02:00"^^xsd:dateTime ;
+    edinttraf:numDirections "1"^^xsd:integer ;
+    edinttraf:numLanes "3"^^xsd:integer ;
+    edinttraf:isRecurrent "true"^^xsd:boolean ;
+    edinttraf:recurrence "Excursión juvenil" ;
+    edinttraf:incidentType &lt;https://edint.es/kos/IncidentType/evento&gt; ;
+    geosparql:hasGeometry
+    &lt;https://example.org/recurso/point/1000&gt; ;
+    edinttraf:incidentInSection &lt;https://example.org/recurso/tramo/1000&gt; .
+  </textarea></pre>
+  <script>
+      var editor2 = CodeMirror.fromTextArea(document.getElementById("code6"), {
+          mode: "text/turtle",
+          matchBrackets: true
+      });
+      editor2.setSize(null, "230px"); // ancho automático, altura menor
+  </script>
+</span>
+
+
 

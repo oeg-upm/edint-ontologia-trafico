@@ -11,7 +11,7 @@
   <div><center><img src="images/diagrama-conceptual-sensors.png" alt="Diagrama conceptual de los sensores"/><figcaption>Figura 1. - Diagrama conceptual de los equipos de tráfico.</figcaption></center></div>
 </p>
 
-  <p>Para representar los equipos se ha creado el concepto <a href="#TrafficEquipment">Equipo de tráfico</a> que se relaciona a través de la propiedad <a href="#trafficEquipmentType">tipo de equipo de tráfico</a> con un concepto de la  <a href="#http://vocab.linkeddata.es/datosabiertos/kos/edint/edint/TrafficEquipmentType">taxonomía</a> correspondiente. Tiene como propiedades un identificador del equipo <a href="#http://purl.org/dc/terms/identifier" >dct:identifier</a>, una descripción <a href="#http://purl.org/dc/terms/description">dct:description</a>,  <a href="#numDirections" >número de sentidos de circulación</a> a los que sirve, el <a href="#numLanes">número de carriles</a> y si es urbano o no (<a href="#urban" >edinttraf:urbano</a>).Lo</p>
+  <p>Para representar los equipos se ha creado el concepto <a href="#TrafficEquipment">Equipo de tráfico</a> que se relaciona a través de la propiedad <a href="#trafficEquipmentType">tipo de equipo de tráfico</a> con un concepto de la  <a href="#https://edint.es/kos/TrafficEquipmentType">taxonomía</a> correspondiente. Tiene como propiedades un identificador del equipo <a href="#http://purl.org/dc/terms/identifier" >dct:identifier</a>, una descripción <a href="#http://purl.org/dc/terms/description">dct:description</a>,  <a href="#numDirections" >número de sentidos de circulación</a> a los que sirve, el <a href="#numLanes">número de carriles</a> y si es urbano o no (<a href="#urban" >edinttraf:urbano</a>).Lo</p>
 
   <p>El equipo monitorea <a href="#monitors">monitorea</a> un  <a href="#StreetSection">tramo</a> que es una clase utilizada para describir tanto los tramos que monitorean los equipos como los tramos de vía que se ven afectados por una <a href="#Incidencia">Incidencia</a>.
   Hay dos tipos de equipos de tráfico:  <a href="#ControlEquipment">equipos de control de tráfico</a> que realizan mediciones sobre vehículos específicos y  <a href="TrafficMeasurementDevice">dispositivos de medición de tráfico</a>. Ambos, con sus correspondientes subtipos, están definidos en la  taxomonía de tipo de equipo de tráfico ya mencionada. La clase que representa los equipos de tráfico es a su vez una subclase de <a href="#http://www.w3.org/ns/sosa/Sensor">sosa:Sensor</a> de la <a href="https://www.w3.org/TR/vocab-ssn/">Ontología SSN (Semantic Sensors Network Ontology)</a>.</p>
@@ -19,18 +19,18 @@
    <p>Un equipo de tráfico  <a href="#http://www.w3.org/ns/sosa/observes">observa</a> una <a href="#TrafficProperty">propiedad de tráfico</a> que es una subclase de <a href="#http://www.w3.org/ns/sosa/ObservableProperty">sosa:ObservableProperty</a>. Específicamente, el dispositivo de medición de tráfico tiene atributos que indican si se encuentra en servicio o no (<a href="#inService">inService</a>) y la frecuencia de medición (<a href="#measurementFrequency">measurementFrequency</a>).
    La clase que representa a las propiedades de medición de tráfico cuenta con varias instancias que son las mediciones definidas : <a href="#intensity">intensidad </a>, <a href="#occupation">ocupación </a>, <a href="#load">carga</a>, <a href="#speed">velocidad </a>,  <a href="#level">nivel</a>, <a href="#composition">composición</a>, <a href="#density">densidad</a> y <a href="#vehicleAccess">acceso de vehículo</a>.</p>
 
-  La clase <a href="#TrafficObservation">observación de tráfico</a> es subclase de <a href="#http://www.w3.org/ns/sosa/Observation" >sosa:Observation</a> que tiene una propiedad <a href="#validated">validada</a> que permite conocer si se ha producido una validación de la observación o no. El tiempo en el que se ha realizado la observación se expresa a través de la propiedad <a href="#http://www.w3.org/ns/sosa/phenomenonTime">sosa:phenomenonTime</a> que enlaza con la clase <a href="#http://www.w3.org/2006/time#TemporalEnity">time:TemporalEntity</a>, subclase de <a href="#http://www.w3.org/2006/time#TemporalEntity">time:TemporalEntity</a>. Finalmente, la observación tiene una característica de interés <a href="https://www.w3.org/ns/sosa/hasFeatureOfInterest">sosa:hasFeatureOfInterest</a> que es un  <a href="#TrafficObservationPoint">punto de observación de tráfico</a> específico en donde se realiza la observación.</p>
+  La clase <a href="#TrafficObservation">observación de tráfico</a> es subclase de <a href="#http://www.w3.org/ns/sosa/Observation" >sosa:Observation</a> que tiene una propiedad <a href="#validated">validada</a> que permite conocer si se ha producido una validación de la observación o no. El tiempo en el que se ha realizado la observación se expresa a través de la propiedad <a href="#http://www.w3.org/ns/sosa/phenomenonTime">sosa:phenomenonTime</a> que enlaza con la clase <a href="#http://www.w3.org/2006/time#TemporalEntity">time:TemporalEntity</a> que representa un intervalo temporal o un instante de tiempo. Finalmente, la observación tiene una característica de interés <a href="#https://www.w3.org/ns/sosa/hasFeatureOfInterest">sosa:hasFeatureOfInterest</a> que es un  <a href="#TrafficObservationPoint">punto de observación de tráfico</a> específico en donde se realiza la observación.</p>
 
     <!-- INCIDENCIA --> 
     <p>La Figura 2 muestra las clases y propiedades de las incidencias de tráfico.
-  <div><center><img src="images/diagrama-conceptual-incidence.png" alt="Diagrama conceptual de incidencias de tráfico"/><figcaption>Figura 2. - Diagrama conceptual de incidencias de tráfico.</figcaption></center></div>
+  <div><center><img src="images/diagrama-conceptual-incident.png" alt="Diagrama conceptual de incidencias de tráfico"/><figcaption>Figura 2. - Diagrama conceptual de incidencias de tráfico.</figcaption></center></div>
 </p>
 
-  <p>El concepto principal de esta figura es la <a href="#Incidence">incidencia</a> que se relaciona con el <a href="#streetSection">tramo</a> a través de la propiedad <a href="#incidenceInSection">incidencia en tramo</a>.
-  Dado que es subclase de <a href="http://www.opengis.net/ont/geosparql#Feature" >geosparql:Feature</a>, tiene la propiedad <a href="http://www.opengis.net/ont/geosparql#hasGeometry">geosparql:hasGeometry</a> que enlaza con su localización en un punto geográfico <a href="http://www.opengis.net/ont/sf#Point">sf:Point</a> cuyos atributos son sus coordenadas. También se relaciona con la taxonomía de  <a href="#http://vocab.linkeddata.es/datosabiertos/kos/edint/edint/IncidenceType">tipos de incidencia</a> a través de la propiedad <a href="#incidenceType">tipo de incidencia</a>.
+  <p>El concepto principal de esta figura es la <a href="#Incident">incidencia</a> que se relaciona con el <a href="#StreetSection">tramo</a> a través de la propiedad <a href="#incidentInSection">incidencia en tramo</a>.
+  Dado que es subclase de <a href="#http://www.opengis.net/ont/geosparql#Feature" >geosparql:Feature</a>, tiene la propiedad <a href="#http://www.opengis.net/ont/geosparql#hasGeometry">geosparql:hasGeometry</a> que enlaza con su localización en un punto geográfico <a href="#http://www.opengis.net/ont/sf#Point">sf:Point</a> cuyos atributos son sus coordenadas. También se relaciona con la taxonomía de  <a href="#https://edint.es/kos/IncidentType">tipos de incidencia</a> a través de la propiedad <a href="#incidentType">tipo de incidencia</a>.
   
-  La <a href="#Incidence">edinttraf:Incidencia</a> cuenta con un identificador <a href="#http://purl.org/dc/terms/identifier">dct:identifier</a>, una descripción <a href="#http://purl.org/dc/terms/description">dct:description</a>, una fecha de inicio <a href="#https://schema.org/startDate">schema:startDate</a>, una fecha de fin <a href="#https://schema.org/endDate">schema:endDate</a>, el  <a href="#numDirections">número de sentidos a los que afecta</a> y el  <a href="#numLanes">número de carriles</a>.
-  Cuenta con dos subclases, la de <a href="#PlannedIncidence">incidencia planificada</a> e <a href="#UnplannedIncidence">incidencia no planificada</a> para las que han ocurrido de forma fortuita.</p>
+  La <a href="#Incident">edinttraf:Incidencia</a> cuenta con un identificador <a href="#http://purl.org/dc/terms/identifier">dct:identifier</a>, una descripción <a href="#http://purl.org/dc/terms/description">dct:description</a>, una fecha de inicio <a href="#https://schema.org/startDate">schema:startDate</a>, una fecha de fin <a href="#https://schema.org/endDate">schema:endDate</a>, el  <a href="#numDirections">número de sentidos a los que afecta</a> y el  <a href="#numLanes">número de carriles</a>.
+  Cuenta con dos subclases, la de <a href="#PlannedIncident">incidencia planificada</a> e <a href="#UnplannedIncident">incidencia no planificada</a> para las que han ocurrido de forma fortuita.</p>
   <p>Con la finalidad de facilitar la comprensión del uso de algunas clases y propiedades de este vocabulario se proporcionan a continuación algunos ejemplos:</p>
 
   <h4>Equipo Tráfico</h4>
@@ -39,17 +39,17 @@
   Se enlaza a través de la propiedad tipo de equipo de tráfico con el tipo de dispositivo correspondiente de la taxonomía de tipos de equipos de tráfico, en este caso tubo neumático.</p>
 
   <pre><textarea style="resize:none" readonly id="code2" name="code" rows="25" cols="100">
-  &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/equipotrafico/100&gt; a edinttraf:TrafficMeasurementDevice ;
+  &lt;https://example.org/recurso/equipotrafico/100&gt; a edinttraf:TrafficMeasurementDevice ;
     dct:identifier "100"^^xsd:string ;
     dct:description "C. GRAN VIA;San Bernardo-Garcia Molinas;San Bernardo"^^xsd:string ;
-    sosa:observes &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/carga&gt; ;
+    sosa:observes &lt;https://example.org/recurso/carga&gt; ;
     edinttraf:numDirections "2"^^xsd:int ;
     edinttraf:numCLanes "8"^^xsd:integer ;
     edinttraf:urban "true"^^xsd:boolean ;
     edinttraf:inService "true"^^xsd:boolean ;
     edinttraf:measurementFrequency "5 minutos"^^xsd:string ;
-    edinttraf:monitors &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/tramo/100&gt; ;
-    edinttraf:trafficEquipmentType &lt;http://vocab.linkeddata.es/datosabiertos/kos/edint/trafficequipment/tubo-neumatico&gt; .
+    edinttraf:monitors &lt;https://example.org/recurso/tramo/100&gt; ;
+    edinttraf:trafficEquipmentType &lt;https://edint.es/kos/trafficequipment/tubo-neumatico&gt; .
   </textarea></pre>
   <script>
       var editor2 = CodeMirror.fromTextArea(document.getElementById("code2"), {
@@ -68,15 +68,15 @@
   <p>La clase observación de tráfico se relaciona a través de la propiedad sosa:observedProperty a la propiedad de "carga". La propiedad validada indica si el dato ha sido validado o no. Para representar el intervalo de registro de datos se utiliza la propiedad sosa:phenomenonTime que se relaciona con la clase time:TemporalEntity como se ha explicado anteriormente.</p>
   <p>Observación:</p>
   <pre><textarea style="resize:none" readonly id="code3" name="code" rows="25" cols="100">
-   &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/observaciontrafico/20200423114500&gt; a edinttraf:ObservacionTrafico ;
+   &lt;https://example.org/recurso/observaciontrafico/20200423114500&gt; a edinttraf:ObservacionTrafico ;
     dct:identifier "100-20200423114500"^^xsd:string ;
     sosa:resultTime "2020-04-23T11:45:00+02:00"^^xsd:dateTime ;
-    sosa:hasResult  &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/quantityvalue/20200423114500&gt;;
+    sosa:hasResult  &lt;https://example.org/recurso/quantityvalue/20200423114500&gt;;
     edinttraf:validated "true"^^xsd:boolean ;
-    sosa:madeBySensor &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/equipo-trafico/100&gt; ;
-    sosa:observedProperty &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/carga&gt; ;
-    sosa:hasFeatureOfInterest &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/punto-observacion-trafico/1234&gt; ;
-    sosa:phenomenonTime &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/interval/20200423114500&gt; .
+    sosa:madeBySensor &lt;https://example.org/recurso/equipo-trafico/100&gt; ;
+    sosa:observedProperty &lt;https://example.org/recurso/carga&gt; ;
+    sosa:hasFeatureOfInterest &lt;https://example.org/recurso/punto-observacion-trafico/1234&gt; ;
+    sosa:phenomenonTime &lt;https://example.org/recurso/interval/20200423114500&gt; .
   </textarea></pre>
   <script>
       var editor2 = CodeMirror.fromTextArea(document.getElementById("code3"), {
@@ -88,14 +88,14 @@
 
   <p>Intervalo de observación:</p>
   <pre><textarea style="resize:none" readonly id="code4" name="code" rows="25" cols="100">
-    &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/interval/20200423114500&gt; a time:Interval ;
-    time:hasBegining &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/instant/20200423114455&gt; ;
-    time:hasEnd &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/instant/202004231145000&gt; .
+    &lt;https://example.org/recurso/interval/20200423114500&gt; a time:Interval ;
+    time:hasBegining &lt;https://example.org/recurso/instant/20200423114455&gt; ;
+    time:hasEnd &lt;https://example.org/recurso/instant/202004231145000&gt; .
 
-    &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/instant/20200423114455&gt; a time:Instant ;
+    &lt;https://example.org/recurso/instant/20200423114455&gt; a time:Instant ;
     time:inXSDgYearMonth "2020-04-23T11:44:55+02:00"^^xsd:dateTime .
 
-    &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/instant/20200423114500&gt; a time:Instant ;
+    &lt;https://example.org/recurso/instant/20200423114500&gt; a time:Instant ;
     time:inXSDgYearMonth "2020-04-23T11:45:00+02:00"^^xsd:dateTime .
     </textarea></pre>
     <script>
@@ -109,10 +109,10 @@
   <h4>Donde aparece</h4>
   <p>Esta Observación aparece a través de sosa:hasFeatureOfInterest que se relaciona con el punto de observacion de tráfico.</p>
   <pre><textarea style="resize:none" readonly id="code5" name="code" rows="25" cols="100">
-    &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/punto-observacion-trafico/1234&gt;; a edinttraf:TrafficObservationPoint ;
-    geosparql:hasGeometry &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/point/100&gt; ;
-    geo:lat &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/point/100&gt; ;
-    geo:long &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/point/101&gt; ;.
+    &lt;https://example.org/recurso/punto-observacion-trafico/1234&gt;; a edinttraf:TrafficObservationPoint ;
+    geosparql:hasGeometry &lt;https://example.org/recurso/point/100&gt; ;
+    geo:lat &lt;https://example.org/recurso/point/100&gt; ;
+    geo:long &lt;https://example.org/recurso/point/101&gt; ;.
   </textarea></pre>
   <script>
       var editor2 = CodeMirror.fromTextArea(document.getElementById("code5"), {
@@ -125,7 +125,7 @@
   <h4>Incidencia</h4>
   <p>Para representar una incidencia se ha creado una instancia de la clase incidencia que cuenta con las propiedades relatadas anteriormente: una fecha de creación de la incidencia, una fecha de inicio, una fecha de fin, una fecha de fin prevista, el número de sentidos, el número de carriles, si es recurrente y en este caso el motivo de la recurrencia.</p>
   <pre><textarea style="resize:none" readonly id="code6" name="code" rows="25" cols="100">
-    &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/incidenciaplanificada/1000&gt; a edinttraf:Incidencia ;
+    &lt;https://example.org/recurso/incidenciaplanificada/1000&gt; a edinttraf:Incidencia ;
     dct:identifier "1000"^^xsd:string ;
     dct:description "EXP-2020/22329 Plaza Humilladero-Almendro"^^xsd:string ;
     schema:startDate "2020-03-12T16:00:00+02:00"^^xsd:dateTime ;
@@ -135,10 +135,10 @@
     edinttraf:numLanes "3"^^xsd:integer ;
     edinttraf:isRecurrent "true"^^xsd:boolean ;
     edinttraf:recurrence "Excursión juvenil" ;
-    edinttraf:incidenceType &lt;http://vocab.linkeddata.es/datosabiertos/kos/edint/transporte/trafico/tipo-incidencia/evento&gt; ;
+    edinttraf:incidentType &lt;https://edint.es/kos/IncidentType/evento&gt; ;
     geosparql:hasGeometry
-    &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/point/1000&gt; ;
-    edinttraf:incidenceInSection &lt;http://vocab.linkeddata.es/recurso/transporte/trafico/tramo/1000&gt; .
+    &lt;https://example.org/recurso/point/1000&gt; ;
+    edinttraf:incidentInSection &lt;https://example.org/recurso/tramo/1000&gt; .
   </textarea></pre>
   <script>
       var editor2 = CodeMirror.fromTextArea(document.getElementById("code6"), {
